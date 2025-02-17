@@ -1,0 +1,10 @@
+degree: 2      # The degree of the polynomial
+vel: 0.02      # Target speed
+# identification angle
+target_values: [0, 6.3793702, 12.83958839, 19.47122061, 26.38779993,
+                33.74898859, 41.8103149, 51.05755872, 62.73395544, 90]
+# Theoretically, the torque that should be output at each angle
+tor_values: [0, 1.428177778, 2.856355556, 4.284533334, 5.712711112, 
+             7.14088889, 8.569066668, 9.997244446, 11.425422224, 12.853600002]
+
+data_file_path: /home/hzw/ros_torque_control/Ws_Saber_750d/src/single_actuator/record_data/torque_friction_detection.csv
