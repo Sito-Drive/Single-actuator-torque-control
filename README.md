@@ -53,7 +53,7 @@ This file will output the 7 friction parameters of the actuator related to speed
 ### 功能2 Feature 2
 1. 给执行器加上较大重量的配重，如图所示：  
 Add a heavy weight to the actuator, as shown in the figure:  
-<img src="image1.png" alt="配重安装示意图" width="400" height="500">
+<img src="image1.png" alt="配重安装示意图" width="400" height="500">  
 修改执行器的零点偏置，零点应该位于连接杆竖直向下的方向；配重的整体重心应该位于连接杆上
 2. 将feature参数改为torque_friction_detection并再次运行torque_control.launch文件：  
 Change the feature parameter to torque_friction_detection and run the torque_control.launch file again:  
