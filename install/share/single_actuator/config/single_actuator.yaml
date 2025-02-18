@@ -2,7 +2,7 @@
 feature: speed_riction_detection  # speed_riction_detection, torque_friction_detection, torque_identification
 
 # Path to record data
-record_path: "/home/hzw/ros_torque_control/Ws_Saber_750d/src/single_actuator/record_data"
+record_path: "/home/hzw/Single-actuator-torque-control/install/share/single_actuator/record_data"
 
 # Actuator control cycle,The minimum is 0.003
 control_cycle: 0.0036
