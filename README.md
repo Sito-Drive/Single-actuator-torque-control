@@ -41,7 +41,7 @@ source ./setup.bash
 roslaunch single_actuator torque_control.launch
 ```
 需要注意的是，如果record_path路径不存在，则无法生成记录数据的csv文件；此时执行器输出法兰中不能装配任何物品，否则将导致测试结果偏大。  
-It should be noted that if the record_path path does not exist, the csv file for recording data cannot be generated; at this time, nothing can be assembled in the actuator output flange, otherwise the test result will be too large.
+It should be noted that if the record_path path does not exist, the csv file for recording data cannot be generated; at this time, nothing can be assembled in the actuator output flange, otherwise the test result will be too large.  
 3. 完成该功能需要10分钟左右，在执行器收集完数据并停止转动后，关闭程序，配置好speed_friction_fitting.yaml文件并运行：  
 It takes about 10 minutes to complete this feature. After the actuator has collected data and stopped rotating, close the program, configure the speed_friction_fitting.yaml file and run:  
 ```bash
