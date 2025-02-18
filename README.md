@@ -24,11 +24,11 @@ sudo apt install ros-noetic-serial
 # 使用介绍 Instructions
 1. single_actuator包中包含3个功能，可以在install/share/single_actuator/config/single_actuator.yaml中查看，
 其中speed_riction_detection功能是收集执行器在不同速度下的电流数据，利用这些数据，使用install/lib/single_actuator/speed_friction_fitting文件拟合可以得出执行器克服摩擦的电流（简称摩擦电流）与速度的关系；  
-The single_actuator package contains 3 functions, which can be viewed in install/share/single_actuator/config/single_actuator.yaml.The speed_riction_detection function collects the current data of the actuator at different speeds. Using these data, the install/lib/single_actuator/speed_friction_fitting file is used to fit the relationship between the current (friction current for short) and speed of the actuator to overcome friction;  
+The single_actuator package contains 3 features, which can be viewed in install/share/single_actuator/config/single_actuator.yaml.The speed_riction_detection feature collects the current data of the actuator at different speeds. Using these data, the install/lib/single_actuator/speed_friction_fitting file is used to fit the relationship between the current (friction current for short) and speed of the actuator to overcome friction;  
 2. torque_friction_detection功能则需要给执行器加上较大重量的负载，而后收集执行器在不同扭矩的情况下摩擦电流变化，利用torque_friction_fitting文件拟合得到摩擦电流与输出力矩的关系。  
-The torque_friction_detection function requires adding a heavy load to the actuator, and then collecting the changes in friction current of the actuator under different torques, and using the torque_friction_fitting file to fit the relationship between friction current and output torque.  
+The torque_friction_detection feature requires adding a heavy load to the actuator, and then collecting the changes in friction current of the actuator under different torques, and using the torque_friction_fitting file to fit the relationship between friction current and output torque.  
 3. torque_identification功能则是验证摩擦参数的最终结果，根据实际情况在较小幅度上更改摩擦参数。  
-The torque_identification function verifies the final result of the friction parameters and changes the friction parameters to a smaller extent according to the actual situation.
+The torque_identification feature verifies the final result of the friction parameters and changes the friction parameters to a smaller extent according to the actual situation.
 ## 步骤 step：
 ### 功能1 Feature 1
 1. 在上位机中修改执行器的默认参数，将默认加减速度更改为6000，默认电流10000mA。  
@@ -43,7 +43,7 @@ roslaunch single_actuator torque_control.launch
 需要注意的是，如果record_path路径不存在，则无法生成记录数据的csv文件；此时执行器输出法兰中不能装配任何物品，否则将导致测试结果偏大。  
 It should be noted that if the record_path path does not exist, the csv file for recording data cannot be generated; at this time, nothing can be assembled in the actuator output flange, otherwise the test result will be too large.
 3. 完成该功能需要10分钟左右，在执行器收集完数据并停止转动后，关闭程序，配置好speed_friction_fitting.yaml文件并运行：  
-It takes about 10 minutes to complete this function. After the actuator has collected data and stopped rotating, close the program, configure the speed_friction_fitting.yaml file and run:  
+It takes about 10 minutes to complete this feature. After the actuator has collected data and stopped rotating, close the program, configure the speed_friction_fitting.yaml file and run:  
 ```bash
 chmod +x ./lib/single_actuator/speed_friction_fitting
 ./lib/single_actuator/speed_friction_fitting
@@ -55,14 +55,15 @@ This file will output the 7 friction parameters of the actuator related to speed
 Add a heavy weight to the actuator, as shown in the figure:  
 <img src="image1.png" alt="配重安装示意图" width="400" height="500">  
 
-修改执行器的零点偏置，零点应该位于连接杆竖直向下的方向；配重的整体重心应该位于连接杆上
+修改执行器的零点偏置，零点应该位于连接杆竖直向下的方向；配重的整体重心应该位于连接杆上  
+Modify the zero offset of the actuator. The zero point should be located in the vertical downward direction of the connecting rod; the overall center of gravity of the counterweight should be located on the connecting rod.  
 2. 将feature参数改为torque_friction_detection并再次运行torque_control.launch文件：  
 Change the feature parameter to torque_friction_detection and run the torque_control.launch file again:  
 ```bash
 roslaunch single_actuator torque_control.launch
 ```
 3. 该功能将运行3分钟左右，在执行器停止后关闭程序，计算添加的配重（包括连接杆）理论上的力矩值,配置好torque_friction_fitting.yaml文件，其中target_values默认不需要更改，tor_values的值分别为0，最大力矩的1/9,2/9,...,9/9  
-This function will run for about 3 minutes. After the actuator stops, close the program and calculate the theoretical torque value of the added load (including the connecting rod). Configure the torque_friction_fitting.yaml file. The target_values ​​do not need to be changed by default. The values ​​of tor_values ​​are 0, 1/9, 2/9, ..., 9/9 of the maximum torque.  
+This feature will run for about 3 minutes. After the actuator stops, close the program and calculate the theoretical torque value of the added load (including the connecting rod). Configure the torque_friction_fitting.yaml file. The target_values ​​do not need to be changed by default. The values ​​of tor_values ​​are 0, 1/9, 2/9, ..., 9/9 of the maximum torque.  
 4. 运行 run：
 ```bash
 chmod +x ./lib/single_actuator/torque_friction_fitting
