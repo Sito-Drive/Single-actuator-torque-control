@@ -1,5 +1,5 @@
 # Feature Selection
-feature: speed_riction_detection  # speed_riction_detection, torque_friction_detection, torque_identification
+feature: torque_identification  # speed_riction_detection, torque_friction_detection, torque_identification
 
 # Path to record data
 record_path: "/home/hzw/Single-actuator-torque-control/install/share/single_actuator/record_data"
@@ -40,8 +40,8 @@ link:
  1099.25539383,  174.98649012]
 
   # Torque-dependent friction parameters, the size is 2
-  frict_param_assist: [3.076194850005168, -4.518168182564508]
-  frict_param_resistance: [0.44411091962330373, 55.66227126062009]
+  frict_param_assist: [1.5522639917862417, 8.17463007790287]
+  frict_param_resistance: [0.38864645863153413, 64.89859844357332]
 
   # Actuator reduction ratio
   Reduction: 101

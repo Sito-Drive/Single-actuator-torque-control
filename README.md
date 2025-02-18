@@ -42,8 +42,8 @@ cd your_path/install
 source ./setup.bash
 roslaunch single_actuator torque_control.launch
 ```
-3. 完成该功能需要10分钟左右，在执行器收集完数据并停止转动后，关闭程序，配置好speed_friction_fitting.yaml文件并运行：  
-It takes about 10 minutes to complete this feature. After the actuator has collected data and stopped rotating, close the program, configure the speed_friction_fitting.yaml file and run:  
+3. 完成该功能需要16分钟左右，在执行器收集完数据并停止转动后，关闭程序，配置好speed_friction_fitting.yaml文件并运行：  
+It takes about 16 minutes to complete this feature. After the actuator has collected data and stopped rotating, close the program, configure the speed_friction_fitting.yaml file and run:  
 ```bash
 chmod +x ./lib/single_actuator/speed_friction_fitting
 ./lib/single_actuator/speed_friction_fitting
@@ -62,8 +62,8 @@ Change the **feature** parameter to **torque_friction_detection** and run the to
 ```bash
 roslaunch single_actuator torque_control.launch
 ```
-3. 该功能将运行3分钟左右，在执行器停止后关闭程序，计算添加的配重（包括连接杆）理论上的力矩值,配置好torque_friction_fitting.yaml文件  
-This feature will run for about 3 minutes. After the actuator stops, close the program and calculate the theoretical torque value of the added load (including the connecting rod). Configure the torque_friction_fitting.yaml file.  
+3. 该功能将运行1分钟左右，在执行器停止后关闭程序，计算添加的配重（包括连接杆）理论上的力矩值,配置好torque_friction_fitting.yaml文件  
+This feature will run for about 1 minutes. After the actuator stops, close the program and calculate the theoretical torque value of the added load (including the connecting rod). Configure the torque_friction_fitting.yaml file.  
 > 其中**target_values**默认不需要更改，**tor_values**的值分别为**0**，**最大力矩的1/9,2/9,...,9/9**  
 The target_values ​​do not need to be changed by default. The values ​​of tor_values ​​are **0, 1/9, 2/9, ..., 9/9 of the maximum torque.**  
 4. 运行 run：
@@ -87,5 +87,5 @@ If you feel resistance in the non-force direction (vertical direction) of the ac
 Then, according to the actual situation, the second bit of the **frict_param_assist** or **frict_param_resistance** parameter can be appropriately adjusted. If there is no abnormality, no adjustment is required.   
 > 比如，如果在执行器转动过程中，与输出力矩相同方向出现明显加速现象，则减小**frict_param_assist**参数的绝对值，如果出现明显减速现象，则增大**frict_param_assist**参数的绝对值，**frict_param_resistance**则为与输出力矩相反方向，调节方式相同；  
 For example, if there is an obvious acceleration phenomenon in the same direction as the output torque during the rotation of the actuator, the absolute value of the **frict_param_assist** parameter should be reduced. If there is an obvious deceleration phenomenon, the absolute value of the **frict_param_assist** parameter should be increased. The **frict_param_resistance** is in the opposite direction of the output torque, and the adjustment method is the same.
-3. 更改参数后关闭并重新启动程序（注意拖住配重，避免配重快速下坠）  
-After changing the parameters, close and restart the program (be careful to hold the counterweight to prevent it from falling quickly)
+3. 更改参数后关闭并重新启动程序（注意托住配重，避免配重快速下坠）  
+After changing the parameters, close and restart the program (Pay attention to support the counterweight to prevent it from falling quickly)
