@@ -79,13 +79,13 @@ Change the **feature** parameter to **torque_identification** and run the torque
 ```bash
 roslaunch single_actuator torque_control.launch
 ```
-2. 配重将被转到水平方向进行力矩识别，将添加的配重理论上的力矩值除以识别输出的电流值得到**cur_tor_fastor**参数值。  
-The counterweight will be turned to the horizontal direction for torque identification, and the **cur_tor_fastor** parameter value will be obtained by dividing the theoretical torque value of the added counterweight by the current value of the identification output.
-3. 如果在执行器的非受力方向（竖直方向）感觉到阻力则小幅度增大**Frict_param**参数的最后一个值，反之减小。  
+2. 如果在执行器的非受力方向（竖直方向）感觉到阻力则小幅度增大**Frict_param**参数的最后一个值，反之减小。  
 If you feel resistance in the non-force direction (vertical direction) of the actuator, increase the last value of the **Frict_param** parameter slightly, otherwise decrease it.
-4. 而后根据实际情况可以适当地调节**frict_param_assist**或**frict_param_resistance**参数的第二位,如果无异常情况则无需调节  
+3. 而后根据实际情况可以适当地调节**frict_param_assist**或**frict_param_resistance**参数的第二位,如果无异常情况则无需调节  
 Then, according to the actual situation, the second bit of the **frict_param_assist** or **frict_param_resistance** parameter can be appropriately adjusted. If there is no abnormality, no adjustment is required.   
 > 比如，如果在执行器转动过程中，与输出力矩相同方向出现明显加速现象，则减小**frict_param_assist**参数的绝对值，如果出现明显减速现象，则增大**frict_param_assist**参数的绝对值，**frict_param_resistance**则为与输出力矩相反方向，调节方式相同；  
 For example, if there is an obvious acceleration phenomenon in the same direction as the output torque during the rotation of the actuator, the absolute value of the **frict_param_assist** parameter should be reduced. If there is an obvious deceleration phenomenon, the absolute value of the **frict_param_assist** parameter should be increased. The **frict_param_resistance** is in the opposite direction of the output torque, and the adjustment method is the same.
-3. 更改参数后关闭并重新启动程序（注意托住配重，避免配重快速下坠）  
+4. 更改参数后关闭并重新启动程序（注意托住配重，避免配重快速下坠）  
 After changing the parameters, close and restart the program (Pay attention to support the counterweight to prevent it from falling quickly)
+5. 配重将被转到水平方向进行力矩识别，将添加的配重理论上的力矩值除以识别输出的电流值得到**cur_tor_fastor**参数值。  
+The counterweight will be turned to the horizontal direction for torque identification, and the **cur_tor_fastor** parameter value will be obtained by dividing the theoretical torque value of the added counterweight by the current value of the identification output.
