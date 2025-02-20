@@ -2,5 +2,5 @@
     <rosparam file="$(find single_actuator)/config/single_actuator.yaml" command="load"/>
 
     <node name="torque_control_node" pkg="single_actuator" type="torque_control_node" output="screen" />
-    <node name="data_process_node" pkg="single_actuator" type="data_process" output="screen" />
+    <node name="data_process_node" pkg="single_actuator" type="data_process.py" output="screen" />
 </launch>

@@ -1,5 +1,5 @@
 degree: 6                # The degree of the polynomial
 vel_uint: 0.0145156      # Unit speed
-vel_max: 1.570796327     # Maximum speed
+vel_max: 0.7     # Maximum speed
 
-data_file_path: /home/hzw/Single-actuator-torque-control/install/share/single_actuator/record_data/Friction_identify_data0.csv
+data_file_path: record_data/Friction_identify_data0.csv
