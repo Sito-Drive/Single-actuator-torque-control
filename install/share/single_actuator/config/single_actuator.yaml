@@ -1,5 +1,5 @@
 # Feature Selection
-feature: torque_identification  # speed_riction_detection, torque_friction_detection, torque_identification
+feature: speed_riction_detection  # speed_riction_detection, torque_friction_detection, torque_identification
 
 # Path to record data
 record_path: "record_data"
