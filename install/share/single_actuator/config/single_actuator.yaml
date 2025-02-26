@@ -9,7 +9,8 @@ control_cycle: 0.0036
 
 test_velocity: 0.02
 
-# Calculate the current value output by the actuator when the actuator angle is 90 degrees (the arm is parallel to the horizontal plane)
+# Calculate the current value output by the actuator when the actuator angle is 90 degrees 
+# (the arm is parallel to the horizontal plane)
 service_topic: max_current_overcomes_gravity
 
 # Serial port number
@@ -34,12 +35,16 @@ link:
   # Conversion factor from current to torque
   cur_tor_fastor: 0.002689195
 
-  # # Parameters of the polynomial fitting the friction current, the size is 7*joints_number
-  # The first three are coefficients when the velocity is less than or equal to 0.2rad/s, and the last four are coefficients when the velocity is greater than 0.2rad/s
+  # Parameters of the polynomial fitting the friction current, the size is 7*joints_number
   Frict_param: [8.37244871, -137.25794822,  476.95530116, -530.46204675, -240.6177719,
  1099.25539383,  174.98649012]
-
+  # Friction parameter in the power-assist direction, the size is 2*joints_number 
+  # (used to adjust the friction change caused by the torque change when the rotation 
+  # direction is the same as the current torque direction)
   frict_param_assist: [3.076194850005168, -4.518168182564508]
+  # Resistance direction friction parameter, the size is 2*joints_number 
+  # (used to adjust the friction change caused by torque change when the rotation
+  # direction is opposite to the current torque direction)
   frict_param_resistance: [0.44411091962330373, 55.66227126062009]
 
   # Actuator reduction ratio
