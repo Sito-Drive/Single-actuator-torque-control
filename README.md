@@ -2,7 +2,7 @@
 
 ## introduce
 
-Welcome to use the joint actuator developed by Sito Company. It includes two parts: the first is to identify and eliminate the friction torque, and the second is to obtain the conversion coefficient from current to torque. These two parts enable the joint actuator to rotate easily even when connected to a large mass load. [Please click here to download the corresponding package](en/download/Single-actuator-torque-control.md)
+Welcome to use the joint actuator developed by Sito Company. It includes two parts: the first is to identify and eliminate the friction torque, and the second is to obtain the conversion coefficient from current to torque. These two parts enable the joint actuator to rotate easily even when connected to a large mass load.
 
 ## Dependencies
 
@@ -153,7 +153,7 @@ For example, if the actuator decelerates significantly when the rotation directi
 
 ## 介绍
 
-欢迎使用由鑫拓公司研发的关节执行器,这里包含了两部分内容，第一是辨识并消除摩擦力矩，第二是获取电流到力矩的转换系数。这两部分内容使得关节执行器在连接较大质量的负载的情况下也能够轻松地旋转。[下载对应功能包请点这](en/download/Single-actuator-torque-control.md)  
+欢迎使用由鑫拓公司研发的关节执行器,这里包含了两部分内容，第一是辨识并消除摩擦力矩，第二是获取电流到力矩的转换系数。这两部分内容使得关节执行器在连接较大质量的负载的情况下也能够轻松地旋转。
 
 ## 依赖项
 
