@@ -34,28 +34,26 @@ install serial:
 sudo apt install ros-noetic-serial
 ```
 
-:::info
-If you find an error "version `GLIBC_2.34‘ not found", this will be a solution:  
-    - open /etc/apt/sources.list file  
-    ```bash
-    sudo gedit /etc/apt/sources.list
-    ```
-    - Add a higher version source  
-    ```bash
-    deb http://th.archive.ubuntu.com/ubuntu jammy main  # Add this line to the file
-    ```
-    - install libc6  
-    ```bash
-    sudo apt update
-    sudo apt install libc6
-    ```
-    - Reopen /etc/apt/sources.list and delete the previously added content, and update the source again  
-    ```bash
-    sudo gedit /etc/apt/sources.list
-    deb http://th.archive.ubuntu.com/ubuntu jammy main  # deleted this line
-    sudo apt update
-    ```
-:::
+> If you find an error "version `GLIBC_2.34‘ not found", this will be a solution:  
+>     - open /etc/apt/sources.list file  
+>     ```bash
+>     sudo gedit /etc/apt/sources.list
+>     ```
+>     - Add a higher version source  
+>     ```bash
+>     deb http://th.archive.ubuntu.com/ubuntu jammy main  # Add this line to the file
+>     ```
+>     - install libc6  
+>     ```bash
+>     sudo apt update
+>     sudo apt install libc6
+>     ```
+>     - Reopen /etc/apt/sources.list and delete the previously added content, and update the source again  
+>     ```bash
+>     sudo gedit /etc/apt/sources.list
+>     deb http://th.archive.ubuntu.com/ubuntu jammy main  # deleted this line
+>     sudo apt update
+>     ```
 
 ## Instructions
 
@@ -77,12 +75,8 @@ The single_actuator package contains 3 features, which can be viewed in install/
 1. Use the debugging software to modify the default parameters of the actuator, change the acceleration and deceleration to **6000**.  
 2. Change the **"feature"** parameter of the single_actuator.yaml file to **"speed_riction_detection"** and set the other parameters of the file according to the comments, and then run the file install/share/single_actuator/launch/torque_control.launch:  
 
-:::warning
-It should be noted that if the **"record_path"** path does not exist, the csv file for recording data cannot be generated;
-:::
-:::warning
-At this time, the output side of the actuator cannot be equipped with anything, otherwise the test result will be too large.
-:::
+> It should be noted that if the **"record_path"** path does not exist, the csv file for recording data cannot be generated;
+> At this time, the output side of the actuator cannot be equipped with anything, otherwise the test result will be too large.
 
 ```bash
 cd your_path/install
@@ -103,9 +97,7 @@ This file will output the 7 friction parameters of the actuator related to speed
 
 1. Add a heavy weight to the actuator, and modify the zero offset. as shown in the figure:  
 
-:::tip
-The zero point should be in the vertical downward direction of the connecting rod; the overall center of gravity of the counterweight should be on the connecting rod.  
-:::
+> The zero point should be in the vertical downward direction of the connecting rod; the overall center of gravity of the counterweight should be on the connecting rod.  
 
 <img src="image1.png" alt="配重安装示意图" width="400" height="500">   
 
@@ -117,9 +109,7 @@ roslaunch single_actuator torque_control.launch
 
 3. This feature will run for about 1 minutes. After the actuator stops, close the program and calculate the theoretical torque value of the load (including the connecting rod). Configure the torque_friction_fitting.yaml file.  
 
-:::tip
-The **"target_values"** ​​do not need to be changed by default. The values ​​of tor_values ​​are **0, 1/9, 2/9, ..., 9/9 of the maximum torque.**  
-:::
+> The **"target_values"** ​​do not need to be changed by default. The values ​​of tor_values ​​are **0, 1/9, 2/9, ..., 9/9 of the maximum torque.**  
 
 4. run：
 
@@ -141,9 +131,7 @@ roslaunch single_actuator torque_control.launch
 2. If you feel resistance in the non-force direction (vertical direction) of the actuator, increase the last value of the **"Frict_param"** parameter slightly, otherwise decrease it.
 3. Then, according to the actual situation, the second bit of the **"frict_param_assist"** or **"frict_param_resistance"** parameter can be appropriately adjusted. If there is no abnormality, no adjustment is required.  
 
-:::tip
-For example, if the actuator decelerates significantly when the rotation direction is the same as the torque direction, increase the absolute value of the "frict_param_assist" parameter, otherwise decrease it; if the rotation direction is opposite to the torque direction, adjust "frict_param_resistance" in a similar way;
-:::
+> For example, if the actuator decelerates significantly when the rotation direction is the same as the torque direction, increase the absolute value of the "frict_param_assist" parameter, otherwise decrease it; if the rotation direction is opposite to the torque direction, adjust "frict_param_resistance" in a similar way;
 
 4. After changing the parameters, close and restart the program (Pay attention to support the counterweight to prevent it from falling quickly)
 5. The counterweight will be turned to the horizontal direction for torque identification, and the theoretical torque value of the counterweight will be divided by the current value of the actuator to obtain the **"cur_tor_fastor"** parameter value.
@@ -184,28 +172,26 @@ install serial:
 ```bash
 sudo apt install ros-noetic-serial
 ```
-:::info
-如果发现错误“version `GLIBC_2.34‘ not found”，这会是一个解决方法：
-- 打开 /etc/apt/sources.list 文件
-```bash
-sudo gedit /etc/apt/sources.list
-```
-- 添加更高版本的源并保存
-```bash
-deb http://th.archive.ubuntu.com/ubuntu jammy main  # 添加这行到文件
-```
-- install libc6
-```bash
-sudo apt update
-sudo apt install libc6
-```
-- 重新打开 /etc/apt/sources.list 并删除之前添加的源, 重新更新源
-```bash
-sudo gedit /etc/apt/sources.list
-deb http://th.archive.ubuntu.com/ubuntu jammy main  # 删除这行
-sudo apt update
-```
-:::
+> 如果发现错误“version `GLIBC_2.34‘ not found”，这会是一个解决方法：
+> - 打开 /etc/apt/sources.list 文件
+> ```bash
+> sudo gedit /etc/apt/sources.list
+> ```
+> - 添加更高版本的源并保存
+> ```bash
+> deb http://th.archive.ubuntu.com/ubuntu jammy main  # 添加这行到文件
+> ```
+> - install libc6
+> ```bash
+> sudo apt update
+> sudo apt install libc6
+> ```
+> - 重新打开 /etc/apt/sources.list 并删除之前添加的源, 重新更新源
+> ```bash
+> sudo gedit /etc/apt/sources.list
+> deb http://th.archive.ubuntu.com/ubuntu jammy main  # 删除这行
+> sudo apt update
+> ```
 
 ## 使用介绍
 
@@ -228,12 +214,8 @@ single_actuator功能包中包含了3个功能（可以在install/share/single_a
 
 2. 将single_actuator.yaml文件的 **feature** 参数改为 **speed_riction_detection** 并根据注释设置好该文件的其他参数，而后运行install/share/single_actuator/launch/torque_control.launch文件：  
 
-:::warning
-需要注意的是，如果 **record_path** 路径不存在，则无法生成记录数据的csv文件；
-:::
-:::warning
-此时执行器输出端不能装配任何物品，否则将导致测试结果偏大。  
-:::
+> 需要注意的是，如果 **record_path** 路径不存在，则无法生成记录数据的csv文件；
+> 此时执行器输出端不能装配任何物品，否则将导致测试结果偏大。  
 
 ```bash
 cd your_path/install
@@ -255,9 +237,7 @@ chmod +x ./lib/single_actuator/speed_friction_fitting
 
 1. 给执行器加上较大重量的配重，并修改零点偏置，如图所示：  
 
-:::tip
-零点应该位于连接杆竖直向下的方向；配重的整体重心应该位于连接杆上  
-:::
+> 零点应该位于连接杆竖直向下的方向；配重的整体重心应该位于连接杆上  
 
 <img src="image1.png" alt="配重安装示意图" width="400" height="500" />  
 
@@ -269,9 +249,7 @@ roslaunch single_actuator torque_control.launch
 
 3. 该功能将运行1分钟左右，在执行器停止后关闭程序，计算配重（包括连接杆）理论上的力矩值，配置好torque_friction_fitting.yaml文件  
 
-:::tip
-其中 **target_values** 默认不需要更改， **tor_values** 的值分别为**0和最大力矩的1/9,2/9,...,9/9**  
-:::
+> 其中 **target_values** 默认不需要更改， **tor_values** 的值分别为**0和最大力矩的1/9,2/9,...,9/9**  
 
 4. 运行 run：
 
@@ -293,9 +271,7 @@ roslaunch single_actuator torque_control.launch
 2. 如果在执行器的非受力方向（竖直方向）感觉到阻力则小幅度增大 **Frict_param** 参数的最后一个值，反之减小。  
 3. 而后根据实际情况可以适当地调节 **frict_param_assist** 或 **frict_param_resistance** 参数的第二位,如果无异常情况则无需调节  
 
-:::tip
-比如，如果在执行器转动过程中，旋转方向与力矩方向相同时出现明显减速现象，则增大 **frict_param_assist** 参数的绝对值，反之减小；旋转方向与力矩方向相反时则调节 **frict_param_resistance**，方法类似；  
-:::
+> 比如，如果在执行器转动过程中，旋转方向与力矩方向相同时出现明显减速现象，则增大 **frict_param_assist** 参数的绝对值，反之减小；旋转方向与力矩方向相反时则调节 **frict_param_resistance**，方法类似；  
 
 4. 更改参数后关闭并重新启动程序（注意托住配重，避免配重快速下坠）  
 5. 配重将被转到水平方向进行力矩识别，将配重理论上的力矩值除以执行器的电流值得到 **cur_tor_fastor** 参数值。  
