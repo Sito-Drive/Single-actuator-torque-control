@@ -35,25 +35,25 @@ sudo apt install ros-noetic-serial
 ```
 
 If you find an error "version `GLIBC_2.34‘ not found", this will be a solution:  
-    - open /etc/apt/sources.list file  
-    ```bash
-    sudo gedit /etc/apt/sources.list
-    ```
-    - Add a higher version source  
-    ```bash
-    deb http://th.archive.ubuntu.com/ubuntu jammy main  # Add this line to the file
-    ```
-    - install libc6  
-    ```bash
-    sudo apt update
-    sudo apt install libc6
-    ```
-    - Reopen /etc/apt/sources.list and delete the previously added content, and update the source again  
-    ```bash
-    sudo gedit /etc/apt/sources.list
-    deb http://th.archive.ubuntu.com/ubuntu jammy main  # deleted this line
-    sudo apt update
-    ```
+- open /etc/apt/sources.list file  
+```bash
+sudo gedit /etc/apt/sources.list
+```
+- Add a higher version source  
+```bash
+deb http://th.archive.ubuntu.com/ubuntu jammy main  # Add this line to the file
+```
+- install libc6  
+```bash
+sudo apt update
+sudo apt install libc6
+```
+- Reopen /etc/apt/sources.list and delete the previously added content, and update the source again  
+```bash
+sudo gedit /etc/apt/sources.list
+deb http://th.archive.ubuntu.com/ubuntu jammy main  # deleted this line
+sudo apt update
+```
 
 ## Instructions
 
