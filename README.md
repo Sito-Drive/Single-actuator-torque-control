@@ -34,26 +34,26 @@ install serial:
 sudo apt install ros-noetic-serial
 ```
 
-> If you find an error "version `GLIBC_2.34‘ not found", this will be a solution:  
->     - open /etc/apt/sources.list file  
->     ```bash
->     sudo gedit /etc/apt/sources.list
->     ```
->     - Add a higher version source  
->     ```bash
->     deb http://th.archive.ubuntu.com/ubuntu jammy main  # Add this line to the file
->     ```
->     - install libc6  
->     ```bash
->     sudo apt update
->     sudo apt install libc6
->     ```
->     - Reopen /etc/apt/sources.list and delete the previously added content, and update the source again  
->     ```bash
->     sudo gedit /etc/apt/sources.list
->     deb http://th.archive.ubuntu.com/ubuntu jammy main  # deleted this line
->     sudo apt update
->     ```
+If you find an error "version `GLIBC_2.34‘ not found", this will be a solution:  
+    - open /etc/apt/sources.list file  
+    ```bash
+    sudo gedit /etc/apt/sources.list
+    ```
+    - Add a higher version source  
+    ```bash
+    deb http://th.archive.ubuntu.com/ubuntu jammy main  # Add this line to the file
+    ```
+    - install libc6  
+    ```bash
+    sudo apt update
+    sudo apt install libc6
+    ```
+    - Reopen /etc/apt/sources.list and delete the previously added content, and update the source again  
+    ```bash
+    sudo gedit /etc/apt/sources.list
+    deb http://th.archive.ubuntu.com/ubuntu jammy main  # deleted this line
+    sudo apt update
+    ```
 
 ## Instructions
 
@@ -172,26 +172,26 @@ install serial:
 ```bash
 sudo apt install ros-noetic-serial
 ```
-> 如果发现错误“version `GLIBC_2.34‘ not found”，这会是一个解决方法：
-> - 打开 /etc/apt/sources.list 文件
-> ```bash
-> sudo gedit /etc/apt/sources.list
-> ```
-> - 添加更高版本的源并保存
-> ```bash
-> deb http://th.archive.ubuntu.com/ubuntu jammy main  # 添加这行到文件
-> ```
-> - install libc6
-> ```bash
-> sudo apt update
-> sudo apt install libc6
-> ```
-> - 重新打开 /etc/apt/sources.list 并删除之前添加的源, 重新更新源
-> ```bash
-> sudo gedit /etc/apt/sources.list
-> deb http://th.archive.ubuntu.com/ubuntu jammy main  # 删除这行
-> sudo apt update
-> ```
+如果发现错误“version `GLIBC_2.34‘ not found”，这会是一个解决方法：
+- 打开 /etc/apt/sources.list 文件
+```bash
+sudo gedit /etc/apt/sources.list
+```
+- 添加更高版本的源并保存
+```bash
+deb http://th.archive.ubuntu.com/ubuntu jammy main  # 添加这行到文件
+```
+- install libc6
+```bash
+sudo apt update
+sudo apt install libc6
+```
+- 重新打开 /etc/apt/sources.list 并删除之前添加的源, 重新更新源
+```bash
+sudo gedit /etc/apt/sources.list
+deb http://th.archive.ubuntu.com/ubuntu jammy main  # 删除这行
+sudo apt update
+```
 
 ## 使用介绍
 
