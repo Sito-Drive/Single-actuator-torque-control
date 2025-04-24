@@ -5,7 +5,7 @@ feature: torque_identification  # speed_riction_detection, torque_friction_detec
 record_path: "record_data"
 
 # Actuator control cycle
-control_cycle: 0.0036
+control_cycle: 0.0025
 
 test_velocity: 0.02
 
@@ -36,16 +36,18 @@ link:
   max_current: 10000
 
   # Conversion factor from current to torque
-  cur_tor_fastor: 0.002732
+  cur_tor_fastor: 0.002735
 
   # Parameters of the polynomial fitting the friction current, the size is 7*joints_number
-  Frict_param: [-259.18577851,  1119.51270691, -1869.02472285,  1687.21907114,
-                -1219.55582257,  1120.87686728,   315.22587011]
+  Frict_param: [158.30740053,  -928.30079747,  1858.18713739, -1387.20501424,
+                -119.56101981,  1009.81363785,   277.74169198]
   # Friction parameter in the power-assist direction, the size is 2
   # (used to adjust the friction change caused by the torque change when the rotation 
   # direction is the same as the current torque direction)
-  frict_param_assist: [4.021968944308785, 15.804270169083583]
+  # The third element is used to control the ratio. If you feel resistance, increase this parameter, otherwise decrease it.
+  frict_param_assist: [4.255464274031258, 9.719952955145573, 1.1]
   # Resistance direction friction parameter, the size is 2
   # (used to adjust the friction change caused by torque change when the rotation
   # direction is opposite to the current torque direction)
-  frict_param_resistance: [1.8837675753756786, 48]
+  # The third element is used to control the ratio. If you feel resistance, increase this parameter, otherwise decrease it.
+  frict_param_resistance: [2.133012878353566, 34.259293124848604, 1.3]
