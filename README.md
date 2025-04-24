@@ -65,7 +65,7 @@ The single_actuator package contains 3 features, which can be viewed in install/
 - Get the relationship between friction and output torque
 - This function requires installing a heavy load in the output side of the actuator, and then record the change of friction current when the actuator outputs different torques, and then use the torque_friction_fitting file to fit the relationship between friction current and output torque.
 ### torque_identification： 
-- Verify the final effect of friction parameters
+- Get the conversion factor from current to torque, verify the final effect of friction parameters
 - Change the friction parameters in small increments according to the actual situation
 
 ### Steps to use
@@ -101,18 +101,23 @@ This file will output the 7 friction parameters of the actuator related to speed
 
 <img src="image1.png" alt="配重安装示意图" width="400" height="500">   
 
-2. Change the **"feature"** parameter to **"torque_friction_detection"** and run the torque_control.launch file again:  
+2. Change the **"feature"** parameter to **"torque_identification"** and run the torque_control.launch file again:  
 
 ```bash
 roslaunch single_actuator torque_control.launch
 ```
+This function will lift the weight and detect the output current
 
-3. This feature will run for about 1 minutes. After the actuator stops, close the program and calculate the theoretical torque value of the load (including the connecting rod). Configure the torque_friction_fitting.yaml file.  
+3. Calculate the torque applied to the actuator by the counterweight (including the connecting rod) due to gravity, divide the output current value by the torque value to get the current to torque conversion coefficient, and fill the coefficient into the **cur_tor_fastor** parameter in the single_actuator.yaml file
 
-> The **"target_values"** ​​do not need to be changed by default. The values ​​of tor_values ​​are **0, 1/9, 2/9, ..., 9/9 of the maximum torque.**  
+4. Change the **"feature"** parameter to **"torque_friction_detection"** and run the torque_control.launch file again:  
 
-4. run：
+```bash
+roslaunch single_actuator torque_control.launch
+```
+This function will run for about 2 minutes
 
+5. After the actuator stops, close the program, configure the torque_friction_fitting.yaml file and run:
 ```bash
 chmod +x ./lib/single_actuator/torque_friction_fitting
 ./lib/single_actuator/torque_friction_fitting
@@ -134,8 +139,6 @@ roslaunch single_actuator torque_control.launch
 > For example, if the actuator decelerates significantly when the rotation direction is the same as the torque direction, increase the absolute value of the "frict_param_assist" parameter, otherwise decrease it; if the rotation direction is opposite to the torque direction, adjust "frict_param_resistance" in a similar way;
 
 4. After changing the parameters, close and restart the program (Pay attention to support the counterweight to prevent it from falling quickly)
-5. The counterweight will be turned to the horizontal direction for torque identification, and the theoretical torque value of the counterweight will be divided by the current value of the actuator to obtain the **"cur_tor_fastor"** parameter value.
-
 
 
 
@@ -203,7 +206,7 @@ single_actuator功能包中包含了3个功能（可以在install/share/single_a
 - 获取摩擦与输出力矩的关系  
 - 本功能需要给执行器输出端装上较大重量的负载，而后收集执行器在不同力矩下摩擦电流变化，使用torque_friction_fitting文件拟合出摩擦电流与输出力矩的关系
 ### torque_identification：
-- 验证摩擦参数的最终效果  
+- 获取电流到力矩的转换系数，验证摩擦参数的最终效果  
 - 根据实际情况在较小幅度上更改摩擦参数
 
 ### 使用步骤
@@ -241,18 +244,23 @@ chmod +x ./lib/single_actuator/speed_friction_fitting
 
 <img src="image1.png" alt="配重安装示意图" width="400" height="500" />  
 
-2. 将 **feature** 参数改为 **torque_friction_detection** 并再次运行torque_control.launch文件：  
+2. 将 **feature** 参数改为 **torque_identification** 并再次运行torque_control.launch文件：  
 
 ```bash
 roslaunch single_actuator torque_control.launch
 ```
+该功能会将配重举起并识别输出的电流
 
-3. 该功能将运行1分钟左右，在执行器停止后关闭程序，计算配重（包括连接杆）理论上的力矩值，配置好torque_friction_fitting.yaml文件  
+3. 计算配重（包括连接杆）由于重力而对执行器施加的力矩大小，将输出的电流值除以力矩值得到电流到力矩的转换系数，将该系数填到single_actuator.yaml文件的**cur_tor_fastor**参数中
 
-> 其中 **target_values** 默认不需要更改， **tor_values** 的值分别为**0和最大力矩的1/9,2/9,...,9/9**  
+4. 将 **feature** 参数改为 **torque_friction_detection** 并再次运行torque_control.launch文件：  
 
-4. 运行 run：
+```bash
+roslaunch single_actuator torque_control.launch
+```
+该功能将运行2分钟左右
 
+5. 在执行器停止后关闭程序，配置好torque_friction_fitting.yaml文件并运行：  
 ```bash
 chmod +x ./lib/single_actuator/torque_friction_fitting
 ./lib/single_actuator/torque_friction_fitting
@@ -273,5 +281,4 @@ roslaunch single_actuator torque_control.launch
 
 > 比如，如果在执行器转动过程中，旋转方向与力矩方向相同时出现明显减速现象，则增大 **frict_param_assist** 参数的绝对值，反之减小；旋转方向与力矩方向相反时则调节 **frict_param_resistance**，方法类似；  
 
-4. 更改参数后关闭并重新启动程序（注意托住配重，避免配重快速下坠）  
-5. 配重将被转到水平方向进行力矩识别，将配重理论上的力矩值除以执行器的电流值得到 **cur_tor_fastor** 参数值。  
+4. 更改参数后关闭并重新启动程序（注意托住配重，避免配重快速下坠）   
