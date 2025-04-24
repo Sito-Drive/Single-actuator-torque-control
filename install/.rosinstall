@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/hzw/ros_torque_control/ws_saber_750d/install/setup.sh

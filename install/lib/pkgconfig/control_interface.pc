@@ -1,0 +1,8 @@
+prefix=/home/hzw/ros_torque_control/ws_saber_750d/install
+
+Name: control_interface
+Description: Description of control_interface
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -larm_interface
+Requires: roscpp rospy std_msgs

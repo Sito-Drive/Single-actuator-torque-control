@@ -1,0 +1,8 @@
+prefix=/home/hzw/ros_torque_control/ws_saber_750d/install
+
+Name: single_actuator
+Description: Description of single_actuator
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs message_runtime

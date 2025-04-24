@@ -1,0 +1,7 @@
+degree: 2      # The degree of the polynomial
+vel: 0.02      # Target speed
+
+# Theoretically, the torque that should be output at each angle
+max_torque_values: 10.38936
+
+data_file_path: record_data/torque_friction_detection.csv

@@ -1,0 +1,51 @@
+# Feature Selection
+feature: torque_identification  # speed_riction_detection, torque_friction_detection, torque_identification
+
+# Path to record data
+record_path: "record_data"
+
+# Actuator control cycle
+control_cycle: 0.0036
+
+test_velocity: 0.02
+
+# Calculate the current value output by the actuator when the actuator angle is 90 degrees 
+# (the arm is parallel to the horizontal plane)
+service_topic: max_current_overcomes_gravity
+
+# Serial port number
+DEVICE_NAME: /dev/ttyUSB0
+
+# Serial baud rate
+BAUDRATE: 921600
+
+link:
+  Actuator_ID: 0
+
+  # Actuator reduction ratio
+  Reduction: 101
+
+  # Actuator hardware limitations
+  jnt_limit:
+    lower: -4
+    upper: 4
+    tor: 26.89195
+    vel: 1.57
+  
+  # Maximum current (mA)
+  max_current: 10000
+
+  # Conversion factor from current to torque
+  cur_tor_fastor: 0.002732
+
+  # Parameters of the polynomial fitting the friction current, the size is 7*joints_number
+  Frict_param: [-259.18577851,  1119.51270691, -1869.02472285,  1687.21907114,
+                -1219.55582257,  1120.87686728,   315.22587011]
+  # Friction parameter in the power-assist direction, the size is 2
+  # (used to adjust the friction change caused by the torque change when the rotation 
+  # direction is the same as the current torque direction)
+  frict_param_assist: [4.021968944308785, 15.804270169083583]
+  # Resistance direction friction parameter, the size is 2
+  # (used to adjust the friction change caused by torque change when the rotation
+  # direction is opposite to the current torque direction)
+  frict_param_resistance: [1.8837675753756786, 48]

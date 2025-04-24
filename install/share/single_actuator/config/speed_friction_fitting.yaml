@@ -1,0 +1,5 @@
+degree: 6                # The degree of the polynomial
+vel_uint: 0.0145156      # Unit speed
+vel_max: 1.57     # Maximum speed
+
+data_file_path: record_data/Friction_identify_data0.csv
