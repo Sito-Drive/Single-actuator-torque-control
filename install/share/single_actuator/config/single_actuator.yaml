@@ -36,18 +36,21 @@ link:
   max_current: 10000
 
   # Conversion factor from current to torque
-  cur_tor_fastor: 0.002735
+  cur_tor_fastor: 0.00279989
 
   # Parameters of the polynomial fitting the friction current, the size is 7*joints_number
-  Frict_param: [158.30740053,  -928.30079747,  1858.18713739, -1387.20501424,
-                -119.56101981,  1009.81363785,   277.74169198]
+  Frict_param: [101.7124529,    327.88658697, -2093.07534641,  3266.68570751,
+                -2824.58944895,  2167.75495427,   504.7308376]
   # Friction parameter in the power-assist direction, the size is 2
   # (used to adjust the friction change caused by the torque change when the rotation 
   # direction is the same as the current torque direction)
   # The third element is used to control the ratio. If you feel resistance, increase this parameter, otherwise decrease it.
-  frict_param_assist: [4.255464274031258, 9.719952955145573, 1.1]
+  frict_param_assist: [3.6117723472161876, -12.696007205448703, 1.4]
   # Resistance direction friction parameter, the size is 2
   # (used to adjust the friction change caused by torque change when the rotation
   # direction is opposite to the current torque direction)
   # The third element is used to control the ratio. If you feel resistance, increase this parameter, otherwise decrease it.
-  frict_param_resistance: [2.133012878353566, 34.259293124848604, 1.3]
+  frict_param_resistance: [0.05980375277890193, 29.236204902176766, 1.3]
+  # Negative direction
+  frict_param_assist_neg: [3.852595994998204, -5.3869327964296225, 1.3]
+  frict_param_resistance_neg: [4.408755730180288, 2.4699021938656642, 1.4]
